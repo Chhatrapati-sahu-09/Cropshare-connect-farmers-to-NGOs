@@ -4,46 +4,6 @@
   <img src="client/src/assets/cropshare-logo.png" alt="CropShare Logo" width="200"/>
 </p>
 
-## Screenshots
-
-### Landing Page
-<p align="center">
-  <img src="client/public/screenshot/Screenshot 2025-12-14 161011.png" alt="CropShare Landing Page" width="600"/>
-</p>
-The CropShare landing page introduces the platform's mission to empower farmers, support NGOs, and reduce food waste. It provides clear navigation, language toggle support (Hindi/English), and call-to-action buttons for farmers and NGOs to get started.
-
-### Crop Marketplace
-<p align="center">
-  <img src="client/public/screenshot/Screenshot 2025-12-14 161633.png" alt="Crop Marketplace" width="600"/>
-</p>
-This page displays a list of available crops shared by farmers. Users can search by crop name, farmer, or location, apply category and location filters, and view essential details such as quantity, price, and posting time.
-
-### Interactive Map View
-<p align="center">
-  <img src="client/public/screenshot/Screenshot 2025-12-14 161827.png" alt="Interactive Map View" width="600"/>
-</p>
-The map view allows users to find crops near their location using an interactive map powered by OpenStreetMap. Each marker represents a crop listing, showing quick details like price and quantity for location-based discovery.
-
-### Farmer Dashboard
-<p align="center">
-  <img src="client/public/screenshot/Screenshot 2025-12-14 163111.png" alt="Farmer Dashboard" width="600"/>
-</p>
-The farmer dashboard provides an overview of crop health alerts, weather conditions, storage suitability, and pickup or delivery status. It helps farmers track active requests and manage logistics efficiently.
-
-### Real-time Chat Interface
-<p align="center">
-  <img src="client/public/screenshot/Screenshot 2025-12-14 163136.png" alt="Real-time Chat Interface" width="600"/>
-</p>
-The integrated chat interface enables direct communication between farmers, buyers, and NGOs. Users can negotiate quantity, price, and pickup details in real time, ensuring transparent and efficient coordination.
-
-### Donate to NGOs
-<p align="center">
-  <img src="client/public/screenshot/Screenshot 2025-12-14 202607.png" alt="Donate to NGOs" width="600"/>
-</p>
-This section allows farmers to donate surplus crops directly to nearby NGOs. It displays verified organizations with their locations and needs, enabling farmers to contribute to food distribution and social impact initiatives.
-## 🌾 Problem Statement
-
-In many developing regions, farmers face significant challenges with crop surplus and food waste, while NGOs struggle to source fresh, locally-grown produce for their community programs. The lack of efficient platforms creates barriers between farmers who have excess crops and NGOs that need them for distribution to vulnerable populations.
 
 ### Key Challenges:
 - **Information Asymmetry**: Farmers and NGOs lack visibility into each other's needs and availability
@@ -208,6 +168,50 @@ CropShare is a comprehensive digital platform that bridges the gap between farme
 - Node.js 20.13.1 or higher
 - MongoDB 4.4+ or MongoDB Atlas
 - npm or yarn package manager
+
+
+## Screenshots
+
+### Landing Page
+<p align="center">
+  <img src="client/public/screenshot/Screenshot 2025-12-14 161011.png" alt="CropShare Landing Page" width="600"/>
+</p>
+The CropShare landing page introduces the platform's mission to empower farmers, support NGOs, and reduce food waste. It provides clear navigation, language toggle support (Hindi/English), and call-to-action buttons for farmers and NGOs to get started.
+
+### Crop Marketplace
+<p align="center">
+  <img src="client/public/screenshot/Screenshot 2025-12-14 161633.png" alt="Crop Marketplace" width="600"/>
+</p>
+This page displays a list of available crops shared by farmers. Users can search by crop name, farmer, or location, apply category and location filters, and view essential details such as quantity, price, and posting time.
+
+### Interactive Map View
+<p align="center">
+  <img src="client/public/screenshot/Screenshot 2025-12-14 161827.png" alt="Interactive Map View" width="600"/>
+</p>
+The map view allows users to find crops near their location using an interactive map powered by OpenStreetMap. Each marker represents a crop listing, showing quick details like price and quantity for location-based discovery.
+
+### Farmer Dashboard
+<p align="center">
+  <img src="client/public/screenshot/Screenshot 2025-12-14 163111.png" alt="Farmer Dashboard" width="600"/>
+</p>
+The farmer dashboard provides an overview of crop health alerts, weather conditions, storage suitability, and pickup or delivery status. It helps farmers track active requests and manage logistics efficiently.
+
+### Real-time Chat Interface
+<p align="center">
+  <img src="client/public/screenshot/Screenshot 2025-12-14 163136.png" alt="Real-time Chat Interface" width="600"/>
+</p>
+The integrated chat interface enables direct communication between farmers, buyers, and NGOs. Users can negotiate quantity, price, and pickup details in real time, ensuring transparent and efficient coordination.
+
+### Donate to NGOs
+<p align="center">
+  <img src="client/public/screenshot/Screenshot 2025-12-14 202607.png" alt="Donate to NGOs" width="600"/>
+</p>
+This section allows farmers to donate surplus crops directly to nearby NGOs. It displays verified organizations with their locations and needs, enabling farmers to contribute to food distribution and social impact initiatives.
+## 🌾 Problem Statement
+
+In many developing regions, farmers face significant challenges with crop surplus and food waste, while NGOs struggle to source fresh, locally-grown produce for their community programs. The lack of efficient platforms creates barriers between farmers who have excess crops and NGOs that need them for distribution to vulnerable populations.
+
+
 
 ## 🚀 Installation & Setup
 
