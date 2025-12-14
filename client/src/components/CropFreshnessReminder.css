@@ -1,0 +1,273 @@
+/* Crop Freshness Reminder Section */
+.freshness-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.freshness-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.freshness-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.reminder-count {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.reminders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.reminder-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 4px;
+  border-left: 4px solid;
+  transition: border-color 0.12s ease;
+}
+
+.reminder-item:hover {
+  box-shadow: none;
+}
+
+/* Severity Styles */
+.reminder-high {
+  background: #fef2f2;
+  border-color: #dc2626;
+}
+
+.reminder-high .reminder-icon {
+  color: #dc2626;
+}
+
+.reminder-medium {
+  background: #fffbeb;
+  border-color: #f59e0b;
+}
+
+.reminder-medium .reminder-icon {
+  color: #f59e0b;
+}
+
+.reminder-low {
+  background: #f0fdf4;
+  border-color: #16a34a;
+}
+
+.reminder-low .reminder-icon {
+  color: #16a34a;
+}
+
+.reminder-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reminder-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.reminder-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.reminder-message {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.reminder-action {
+  flex-shrink: 0;
+}
+
+.action-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.action-high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.action-medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.action-low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* Freshness Tips */
+.freshness-tips {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.freshness-tips h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 12px 0;
+}
+
+.freshness-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.freshness-tips li {
+  font-size: 12px;
+  color: #6b7280;
+  padding-left: 20px;
+  position: relative;
+}
+
+.freshness-tips li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Empty & Loading States */
+.freshness-empty,
+.freshness-loading {
+  padding: 40px 20px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.freshness-empty p {
+  color: #6b7280;
+  font-weight: 500;
+  margin: 0 0 4px 0;
+}
+
+.freshness-empty span {
+  font-size: 12px;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .freshness-section {
+    padding: 16px;
+  }
+
+  .freshness-header h3 {
+    font-size: 16px;
+  }
+
+  .reminder-item {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .reminder-message {
+    font-size: 12px;
+  }
+
+  .action-badge {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .freshness-section {
+    padding: 12px;
+    margin-top: 16px;
+  }
+
+  .freshness-header {
+    margin-bottom: 16px;
+  }
+
+  .reminder-count {
+    font-size: 12px;
+  }
+
+  .reminder-item {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .reminder-message {
+    font-size: 12px;
+  }
+
+  .reminder-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .reminder-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .action-badge {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .freshness-tips {
+    padding: 12px;
+  }
+
+  .freshness-tips h4 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .freshness-tips li {
+    font-size: 11px;
+  }
+}

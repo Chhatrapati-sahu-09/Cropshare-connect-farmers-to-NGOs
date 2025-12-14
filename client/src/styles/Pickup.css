@@ -1,0 +1,11 @@
+.pickup-card{background:#fff;border:1px solid #e6e6e6;padding:12px;border-radius:8px;margin:10px}
+.pickup-card div{margin:4px 0}
+.pickup-card .pickup-actions{margin-top:8px}
+.pickup-card .btn-approve{background:#28a745;color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer}
+.pickup-card .btn-reject{background:#dc3545;color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;margin-left:8px}
+.pickup-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;z-index:50}
+.pickup-modal{background:#fff;padding:18px;border-radius:8px;max-width:480px;width:100%;box-shadow:0 8px 30px rgba(0,0,0,0.12)}
+.pickup-modal h4{margin:0 0 12px}
+.pickup-modal label{display:block;font-size:0.9rem;margin-top:8px}
+.pickup-modal input,.pickup-modal textarea{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;margin-top:6px}
+.request-pickup-btn{background:#0d6efd;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer}

@@ -1,0 +1,251 @@
+/* Crop Health Alerts Section */
+.health-alerts-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.alerts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.alerts-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.alerts-count {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.alert-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 4px;
+  border-left: 4px solid;
+  transition: border-color 0.12s ease;
+}
+
+.alert-item:hover {
+  box-shadow: none;
+}
+
+/* Alert Severity Styles */
+.alert-high {
+  background: #fef2f2;
+  border-color: #dc2626;
+}
+
+.alert-high .alert-icon {
+  color: #dc2626;
+}
+
+.alert-medium {
+  background: #fffbeb;
+  border-color: #f59e0b;
+}
+
+.alert-medium .alert-icon {
+  color: #f59e0b;
+}
+
+.alert-good {
+  background: #f0fdf4;
+  border-color: #16a34a;
+}
+
+.alert-good .alert-icon {
+  color: #16a34a;
+}
+
+.alert-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.alert-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-message {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.alert-crop {
+  font-size: 12px;
+  color: #6b7280;
+  display: block;
+}
+
+.alert-crop strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.alert-status {
+  flex-shrink: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge-medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-good {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* Weather Summary */
+.weather-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 4px;
+  border: 1px solid #f0f0f0;
+}
+
+.weather-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Empty & Loading States */
+.alerts-empty,
+.alerts-loading {
+  padding: 40px 20px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .health-alerts-section {
+    padding: 16px;
+  }
+
+  .alerts-header h3 {
+    font-size: 16px;
+  }
+
+  .alert-item {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .alert-message {
+    font-size: 12px;
+  }
+
+  .weather-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .health-alerts-section {
+    padding: 12px;
+    margin-top: 16px;
+  }
+
+  .alerts-header {
+    margin-bottom: 16px;
+  }
+
+  .alerts-count {
+    font-size: 12px;
+  }
+
+  .alert-item {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .alert-message {
+    font-size: 12px;
+  }
+
+  .alert-crop {
+    font-size: 11px;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .weather-summary {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-value {
+    font-size: 14px;
+  }
+}

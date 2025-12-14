@@ -1,0 +1,156 @@
+/* --- Full Page Loader --- */
+.map-page-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* --- Two-Column Layout --- */
+.map-page-layout {
+  display: flex;
+  /* Full height minus navbar (assuming 70px) */
+  height: calc(100vh - 70px);
+  width: 100%;
+  overflow: hidden; /* Prevent double scrollbars */
+}
+
+/* --- Left Sidebar (Controls & List) --- */
+.map-sidebar {
+  flex: 0 0 420px; /* Fixed width for the sidebar */
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.controls-header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.controls-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.distance-controls {
+  margin-bottom: 1rem;
+}
+
+.distance-controls label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+
+.slider-pro {
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: #d1d5db;
+  border-radius: 5px;
+}
+
+/* --- Slider Track (Chrome/Safari) --- */
+.slider-pro::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #198754; /* Green thumb */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* --- Slider Track (Firefox) --- */
+.slider-pro::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #198754; /* Green thumb */
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.crop-count-pro {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/* --- Results List --- */
+.results-list {
+  flex: 1; /* Fills the remaining vertical space */
+  overflow-y: auto; /* The scrollbar for the list */
+  padding-top: 1.5rem;
+  margin: 0 -1.5rem; /* Negative margin to make cards fill space */
+  padding: 1.5rem;
+}
+
+.map-list-card {
+  margin-bottom: 1.5rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+}
+
+/* --- Right Map Area --- */
+.map-main {
+  flex: 1; /* Fills the rest of the screen */
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-map-pro {
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensures it's on the bottom */
+}
+
+/* --- Popup Styling --- */
+.popup-content {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.popup-content strong {
+  font-size: 1.1rem;
+  color: #111827;
+}
+.popup-content p {
+  font-size: 0.9rem;
+  color: #374151;
+  margin: 8px 0;
+}
+.popup-image {
+  width: 100%;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+.btn-view-details {
+  display: block;
+  background-color: #198754;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}

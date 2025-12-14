@@ -1,0 +1,141 @@
+.messages-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.messages-container h2 {
+  color: #27ae60;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.text-muted {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.no-chats {
+  text-align: center;
+  padding: 40px 20px;
+  background: #ecf0f1;
+  border-radius: 8px;
+}
+
+.no-chats p {
+  color: #7f8c8d;
+  font-size: 16px;
+  margin: 0;
+}
+
+.conversations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.conversation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.conversation-item:hover {
+  background: #e9ecef;
+  border-color: #27ae60;
+  box-shadow: 0 2px 6px rgba(39, 174, 96, 0.1);
+  transform: translateX(5px);
+}
+
+.conversation-content {
+  flex: 1;
+}
+
+.conversation-name {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.conversation-crop {
+  color: #7f8c8d;
+  font-size: 13px;
+  display: block;
+}
+
+.conversation-action {
+  margin-left: 10px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .messages-container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .messages-container h2 {
+    font-size: 20px;
+  }
+
+  .conversation-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .conversation-action {
+    width: 100%;
+    text-align: right;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .messages-container {
+    margin: 5px;
+    padding: 10px;
+  }
+
+  .messages-container h2 {
+    font-size: 18px;
+  }
+
+  .conversation-item {
+    padding: 12px;
+  }
+
+  .conversation-name {
+    font-size: 15px;
+  }
+
+  .conversation-crop {
+    font-size: 12px;
+  }
+}

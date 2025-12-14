@@ -1,0 +1,109 @@
+.dashboard-layout {
+  display: flex;
+  height: calc(100vh - 70px); /* Full height minus navbar */
+  background-color: #f8f9fa; /* Light background for content */
+  overflow: hidden; /* manage scrolling inside content area */
+}
+
+.dashboard-sidebar {
+  width: 260px; /* Fixed width for the sidebar */
+  background: #ffffff;
+  border-right: 1px solid #e9e9e9;
+  padding: 20px;
+  flex-shrink: 0; /* Prevents sidebar from shrinking */
+  position: sticky;
+  top: 70px; /* keep below the main top navbar */
+  height: calc(100vh - 70px);
+  overflow-y: auto; /* allow sidebar internal scroll without jumping */
+  z-index: 1; /* keep sidebar under top-level overlays but above content */
+}
+
+.sidebar-logo-link {
+  display: block;
+  margin-bottom: 30px;
+  padding-left: 10px;
+}
+
+.sidebar-logo-img {
+  height: 35px; /* Adjust logo height */
+  width: auto;
+}
+
+.dashboard-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-nav li {
+  margin-bottom: 5px;
+}
+
+.dashboard-nav .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 8px; /* Rounded corners for links */
+  text-decoration: none;
+  color: #555; /* Default text color */
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.dashboard-nav .nav-link .nav-icon {
+  margin-right: 15px;
+  font-size: 1.2rem;
+  width: 20px; /* Aligns text */
+  text-align: center;
+}
+
+/* --- Inactive Link Hover --- */
+.dashboard-nav .nav-link:hover {
+  background: #f4f4f4;
+  color: #222;
+}
+
+/* --- Active Link Style --- */
+.dashboard-nav .nav-link.active {
+  background: #198754; /* Green background */
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(25, 135, 84, 0.3);
+}
+
+/* --- Notification Badge --- */
+.sidebar-link-with-badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-badge {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* --- Invert badge color on active link --- */
+.dashboard-nav .nav-link.active .notification-badge {
+  background-color: #fff;
+  color: #dc3545;
+}
+
+/* --- Content Area --- */
+.dashboard-content {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto; /* Allows content to scroll */
+  height: calc(100vh - 70px);
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-link-content {
+  display: flex;
+  align-items: center;
+}
