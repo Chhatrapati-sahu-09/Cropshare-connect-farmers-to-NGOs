@@ -1,0 +1,53 @@
+services:
+  # Backend API Service
+  - type: web
+    name: cropshare-server
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: WEATHER_API_KEY
+        sync: false
+      - key: GOOGLE_TRANSLATE_API_KEY
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+
+  # Frontend Static Site
+  - type: web
+    name: cropshare-client
+    runtime: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://cropshare-server.onrender.com/api
+      - key: VITE_SOCKET_URL
+        value: https://cropshare-server.onrender.com
+      - key: VITE_GOOGLE_TRANSLATE_KEY
+        sync: false
+
+# Optional: Database service (if using Render's managed database)
+# databases:
+#   - name: cropshare-db
+#     databaseName: cropshare
+#     user: cropshare_user

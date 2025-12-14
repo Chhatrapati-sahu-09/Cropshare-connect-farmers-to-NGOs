@@ -392,7 +392,122 @@ We're continuously working to improve CropShare and expand its capabilities. Her
 - Maintain component documentation
 - Ensure responsive design
 
-## 📄 License
+## � Deployment on Render
+
+### Prerequisites for Deployment
+- Render account (free tier available)
+- MongoDB Atlas account (for database)
+- GitHub repository access
+
+### Step 1: Prepare Environment Variables
+
+#### Backend (.env)
+```env
+NODE_ENV=production
+PORT=10000
+MONGODB_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_secure_jwt_secret
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_app_password
+WEATHER_API_KEY=your_weather_api_key
+GOOGLE_TRANSLATE_API_KEY=your_translate_key
+CLIENT_URL=https://your-client-app.onrender.com
+```
+
+#### Frontend (.env)
+```env
+VITE_API_BASE_URL=https://your-server-app.onrender.com/api
+VITE_SOCKET_URL=https://your-server-app.onrender.com
+```
+
+### Step 2: Deploy Backend (Web Service)
+
+1. Go to [Render Dashboard](https://dashboard.render.com)
+2. Click "New" → "Web Service"
+3. Connect your GitHub repository
+4. Configure service:
+   - **Name**: `cropshare-server`
+   - **Runtime**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+   - **Root Directory**: `server`
+5. Add environment variables from Step 1
+6. Click "Create Web Service"
+
+### Step 3: Deploy Frontend (Static Site)
+
+1. Click "New" → "Static Site" in Render
+2. Connect your GitHub repository
+3. Configure site:
+   - **Name**: `cropshare-client`
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `client/dist`
+   - **Root Directory**: `client`
+4. Add frontend environment variables
+5. Click "Create Static Site"
+
+### Step 4: Update CORS Configuration
+
+After deployment, update the backend environment variable:
+```
+CLIENT_URL=https://cropshare-client.onrender.com
+```
+
+### Step 5: Database Setup
+
+1. Create MongoDB Atlas cluster
+2. Whitelist Render IP addresses (0.0.0.0/0 for development)
+3. Update `MONGODB_URI` in backend environment variables
+
+### Step 6: Testing Deployment
+
+1. Visit your frontend URL
+2. Test user registration/login
+3. Verify API calls work
+4. Test real-time features (chat)
+5. Check responsive design
+6. Verify health check endpoint: `https://your-server-app.onrender.com/api/health`
+
+### Alternative: Using render.yaml
+
+If you prefer automated deployment:
+
+1. Ensure `render.yaml` is in your repository root
+2. Push changes to GitHub
+3. In Render dashboard, select "Blueprint" when creating new services
+4. Render will automatically create both services
+
+### Troubleshooting Common Issues
+
+#### Build Failures
+- Check Node.js version compatibility
+- Verify all dependencies are listed in package.json
+- Check build logs for specific errors
+
+#### CORS Errors
+- Ensure CLIENT_URL matches your frontend domain
+- Check if environment variables are set correctly
+- Verify backend is redeployed after CORS changes
+
+#### Database Connection
+- Verify MongoDB Atlas IP whitelist
+- Check connection string format
+- Ensure database user has correct permissions
+
+#### Real-time Features
+- Confirm Socket.io configuration
+- Check firewall settings
+- Verify environment variables
+
+### Production Optimizations
+
+- Enable gzip compression
+- Set up CDN for static assets
+- Configure monitoring and logging
+- Set up backup strategies
+- Implement rate limiting
+
+## �📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 

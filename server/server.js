@@ -26,16 +26,31 @@ const io = new Server(httpServer, {
       "http://localhost:5173",
       "http://localhost:5174",
       "http://localhost:3000",
+      process.env.CLIENT_URL || "https://cropshare-client.onrender.com"
     ],
     credentials: true,
   },
 });
 
 // 2. Standard Middleware (CORS, Body Parser, Cookie Parser)
-const allowedOrigins = ["http://localhost:5173", "http://localhost:3000"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  process.env.CLIENT_URL || "https://cropshare-client.onrender.com"
+];
+
 const corsOptions = {
   credentials: true,
-  origin: true, // Allow all origins for now (development)
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, etc.)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 };
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -67,6 +82,16 @@ app.use("/api/crops", cropRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/requests", requestRoutes);
 app.use("/api/upload", uploadRoutes);
+
+// Health check endpoint for Render
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    message: "CropShare API is healthy",
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || "development"
+  });
+});
 
 app.get("/", (req, res) => {
   res.send("CropShare API is running...");

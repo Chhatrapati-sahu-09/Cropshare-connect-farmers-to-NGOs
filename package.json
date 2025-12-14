@@ -1,24 +1,12 @@
 {
-  "name": "cropshare-server",
-  "version": "1.0.0",
-  "type": "module",
-  "main": "server.js",
+  "name": "cropshare",
+  "private": true,
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
-  },
-  "keywords": [],
-  "author": "Chhatrapati Sahu",
-  "license": "ISC",
-  "description": "Backend server for CropShare MERN application",
-  "dependencies": {
-    "axios": "^1.13.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.1",
-    "express": "^4.21.2",
-    "mongoose": "^8.3.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.11"
+    "install-all": "npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "deploy": "echo 'Use Render dashboard or render.yaml for deployment'",
+    "test": "npm test --prefix server && npm run test --prefix client"
   }
 }
