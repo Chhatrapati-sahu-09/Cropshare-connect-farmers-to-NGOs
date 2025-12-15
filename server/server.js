@@ -3,10 +3,12 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import connectDB from "./config/db.js";
+import path from "path";
 import cookieParser from "cookie-parser";
 
-// Import Routes
+import connectDB from "./config/db.js";
+
+// Routes
 import userRoutes from "./routes/userRoutes.js";
 import cropRoutes from "./routes/cropRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
@@ -19,56 +21,34 @@ connectDB();
 const app = express();
 const httpServer = createServer(app);
 
-// 1. Configure Socket.io
+// ==================
+// MIDDLEWARE
+// ==================
+app.use(cors({ origin: true, credentials: true }));
+app.use(express.json());
+app.use(cookieParser());
+
+// ==================
+// SOCKET.IO (SAME DOMAIN)
+// ==================
 const io = new Server(httpServer, {
   cors: {
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "http://localhost:3000",
-      process.env.CLIENT_URL || "https://cropshare-client.onrender.com"
-    ],
+    origin: true,
     credentials: true,
   },
 });
 
-// 2. Standard Middleware (CORS, Body Parser, Cookie Parser)
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:3000",
-  process.env.CLIENT_URL || "https://cropshare-client.onrender.com"
-];
-
-const corsOptions = {
-  credentials: true,
-  origin: function (origin, callback) {
-    // Allow requests with no origin (mobile apps, etc.)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-};
-app.use(cors(corsOptions));
-app.use(express.json());
-app.use(cookieParser());
-
-// 3. (CRITICAL FIX) Attach Socket.io to Request BEFORE Routes
+// Attach io to req
 app.use((req, res, next) => {
   req.io = io;
   next();
 });
 
-// 4. Socket.io Connection Logic
 io.on("connection", (socket) => {
-  console.log(`✅ Socket connected: ${socket.id}`);
+  console.log("✅ Socket connected:", socket.id);
 
   socket.on("join_chat", (userId) => {
     socket.join(userId);
-    console.log(`User ${userId} joined room`);
   });
 
   socket.on("disconnect", () => {
@@ -76,29 +56,36 @@ io.on("connection", (socket) => {
   });
 });
 
-// 5. Routes (Now they can access req.io!)
+// ==================
+// API ROUTES
+// ==================
 app.use("/api/users", userRoutes);
 app.use("/api/crops", cropRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/requests", requestRoutes);
 app.use("/api/upload", uploadRoutes);
 
-// Health check endpoint for Render
+// Health check
 app.get("/api/health", (req, res) => {
-  res.status(200).json({
-    status: "OK",
-    message: "CropShare API is healthy",
-    timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || "development"
-  });
+  res.json({ status: "OK", service: "CropShare" });
 });
 
-app.get("/", (req, res) => {
-  res.send("CropShare API is running...");
+// ==================
+// SERVE FRONTEND (CRITICAL)
+// ==================
+const __dirname = path.resolve();
+const clientBuildPath = path.join(__dirname, "../client/dist");
+
+app.use(express.static(clientBuildPath));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(clientBuildPath, "index.html"));
 });
 
-// 6. Start Server
+// ==================
+// START SERVER (RENDER)
+// ==================
 const PORT = process.env.PORT || 5000;
-httpServer.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
+httpServer.listen(PORT, "0.0.0.0", () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });

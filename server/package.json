@@ -5,10 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "build": "echo 'No build step required for Node.js'"
+    "dev": "nodemon server.js"
   },
-  "keywords": [],
   "author": "Chhatrapati Sahu",
   "license": "ISC",
   "description": "Backend server for CropShare MERN application",
