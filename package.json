@@ -8,5 +8,8 @@
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "deploy": "echo 'Use Render dashboard or render.yaml for deployment'",
     "test": "npm test --prefix server && npm run test --prefix client"
+    },
+    "engines": {
+      "node": ">=20.19.0"
   }
 }
