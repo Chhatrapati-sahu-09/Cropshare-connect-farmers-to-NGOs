@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "install-all": "npm install --prefix server && npm install --prefix client",
-    "build": "npm run build --prefix client",
-    "start": "npm start --prefix server",
+    "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server",
+    "start": "node server/server.js",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "deploy": "echo 'Use Render dashboard or render.yaml for deployment'",
     "test": "npm test --prefix server && npm run test --prefix client"
