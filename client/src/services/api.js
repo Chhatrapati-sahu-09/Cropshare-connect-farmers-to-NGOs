@@ -3,7 +3,7 @@ import axios from "axios";
 // 1. Create a re-usable axios instance
 // This instance will have the backend URL and will send cookies
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // Your backend URL
+  baseURL: import.meta.env.VITE_API_BASE_URL || "/api", // Use env or fallback to /api for monorepo
   withCredentials: true, // This is crucial for sending cookies!
 });
 
