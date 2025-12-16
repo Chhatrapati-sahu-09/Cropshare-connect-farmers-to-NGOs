@@ -74,23 +74,15 @@ app.get("/api/health", (req, res) => {
 // SERVE FRONTEND (CRITICAL)
 // ==================
 const __dirname = path.resolve();
-const clientBuildPath = path.join(__dirname, "../client/dist");
-
-app.use(express.static(clientBuildPath));
-
-
-app.get("/", (req, res) => {
-  res.send("CropShare API is running...");
-});
-
-// Serve frontend static files in production
-import path from "path";
-const __dirname = path.resolve();
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/dist")));
   app.get("*", (req, res) =>
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
   );
+} else {
+  app.get("/", (req, res) => {
+    res.send("CropShare API is running...");
+  });
 }
 
 // ==================
