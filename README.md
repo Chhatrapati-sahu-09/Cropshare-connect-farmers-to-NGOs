@@ -22,7 +22,7 @@ CropShare is a comprehensive digital platform that bridges the gap between farme
 - **Communication Tools**: Built-in messaging and notification systems
 - **Multi-language Support**: Google Translate integration for accessibility
 - **Weather Intelligence**: Real-time weather alerts for crop protection
-- **Role-based Dashboards**: Tailored interfaces for farmers and NGOs
+- **Role-based Dashboards**: Tailored interfaces for farmers and NGO
 
 ## 🚀 Features & Workflows
 
