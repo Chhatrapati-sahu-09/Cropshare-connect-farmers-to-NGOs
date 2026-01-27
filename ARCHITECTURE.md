@@ -6,6 +6,8 @@ This document describes the architecture, technology stack, and design patterns 
 
 CropShare is a web-based platform that connects farmers with NGOs for crop donation and distribution. The system enables direct communication, logistics coordination, and impact tracking between agricultural producers and humanitarian organizations.
 
+
+
 ## Technology Stack
 
 ### Frontend
