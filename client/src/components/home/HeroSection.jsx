@@ -18,7 +18,10 @@ const HeroSection = () => {
         </h1>
         <p className="hero-text">
           CropShare connects local farmers with verified NGOs to distribute
-          surplus crops responsibly and efficiently.
+surplus crops responsibly and efficiently — while helping farmers
+detect crop diseases, understand soil health, and stay informed with
+location-based alerts.
+
         </p>
         <div className="hero-buttons">
           <Link

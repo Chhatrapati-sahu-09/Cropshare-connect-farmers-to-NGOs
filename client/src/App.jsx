@@ -20,7 +20,9 @@ import Register from "./pages/Register.jsx";
 import BrowseCrops from "./pages/BrowseCrops.jsx";
 import CropDetailPage from "./pages/CropDetailPage.jsx";
 import MapPage from "./pages/MapPage.jsx";
+import MapFeature from "./pages/crop_disease_map/mapfeature.jsx";
 import AboutPage from "./pages/AboutPage.jsx"; // ✅ Import AboutPage
+import CropGuardPage from "./pages/CropGuardPage.jsx";
 
 // --- Dashboard Pages ---
 import DashboardHome from "./pages/DashboardHome.jsx";
@@ -58,7 +60,9 @@ function App() {
               <Route path="/browse" element={<BrowseCrops />} />
               <Route path="/crop/:id" element={<CropDetailPage />} />
               <Route path="/map" element={<MapPage />} />
+              <Route path="/disease-map" element={<MapFeature />} />
               <Route path="/about" element={<AboutPage />} />{" "}
+              <Route path="/cropguard" element={<CropGuardPage />} />
               {/* ✅ Add About Route */}
             </Route>
 

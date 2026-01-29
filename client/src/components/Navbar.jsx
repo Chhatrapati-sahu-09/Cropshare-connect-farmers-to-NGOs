@@ -109,11 +109,31 @@ const Navbar = ({ logo }) => {
           {/* Common Links for Everyone */}
           <li className="nav-item-pro">
             <Link
-              to="/about"
+              to="/cropguard"
               className="nav-link-pro"
               onClick={closeMobileMenu}
             >
-              How It Works
+              Crop Guard
+            </Link>
+          </li>
+          <li className="nav-item-pro">
+            <a
+              href="https://soilsense-36980.web.app/"
+              className="nav-link-pro"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMobileMenu}
+            >
+              SoilSense
+            </a>
+          </li>
+          <li className="nav-item-pro">
+            <Link
+              to="/disease-map"
+              className="nav-link-pro"
+              onClick={closeMobileMenu}
+            >
+              Disease Map
             </Link>
           </li>
 

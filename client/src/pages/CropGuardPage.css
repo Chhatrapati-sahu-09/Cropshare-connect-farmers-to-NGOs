@@ -1,0 +1,413 @@
+/* --- GLOBAL RESET & UTILS --- */
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out;
+}
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- UPLOAD AREA --- */
+.cropguard-upload-area {
+  background: #f8fafc;
+  border-radius: 1rem;
+  border: 2px dashed #cbd5e1;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+.cropguard-upload-area:hover {
+  border-color: #15803d;
+  background: #f0fdf4;
+}
+
+.cropguard-upload-btn {
+  text-align: center;
+  cursor: pointer;
+}
+.cropguard-upload-btn .icon {
+  background: #fff;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  color: #15803d;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.cropguard-upload-btn .label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #334155;
+}
+.cropguard-upload-btn .desc {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.cropguard-image-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.cropguard-image-preview img {
+  max-height: 280px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.cropguard-image-preview .remove-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.cropguard-image-preview .remove-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* --- ANALYZE BUTTON --- */
+.cropguard-analyze-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #15803d;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 4px 12px rgba(21, 128, 61, 0.2);
+}
+.cropguard-analyze-btn:hover {
+  background: #166534;
+}
+.cropguard-analyze-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- RESULT CARD --- */
+.cropguard-result-card {
+  margin-top: 2rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+.result-header {
+  padding: 2rem;
+  border-bottom: 1px solid #f1f5f9;
+  background: linear-gradient(to right, #ffffff, #f8fafc);
+}
+.result-header .label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+.result-header .disease-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.status-icon.healthy { color: #16a34a; }
+.status-icon.danger { color: #ea580c; }
+.result-header .confidence {
+  font-size: 1.1rem;
+  color: #166534;
+  font-weight: 600;
+  background: #dcfce7;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+}
+
+.result-body { padding: 2rem; }
+.result-footer {
+  padding: 2rem;
+  background: #f0fdf4;
+  border-top: 1px solid #dcfce7;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #15803d;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.symptoms-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.symptoms-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #334155;
+  font-size: 1.1rem;
+}
+.symptoms-list li::before {
+  content: "•";
+  color: #15803d;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  line-height: 1.2rem;
+}
+
+.treatment-text {
+  color: #334155;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+.prevention-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #15803d;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+/* --- CHATBOX STYLES (Modernized) --- */
+.cropguard-chatbox {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 200px);
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.cropguard-chat-header {
+  padding: 1rem 1.5rem;
+  background: #fff;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.cropguard-chat-header .avatar {
+  width: 48px;
+  height: 48px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cropguard-chat-header .info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+.cropguard-chat-header .info .status {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.cropguard-chat-header .status .dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.cropguard-chat-messages {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: calc(100vh - 400px);
+}
+
+.cropguard-message {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 80%;
+}
+.cropguard-message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+.cropguard-message.bot {
+  align-self: flex-start;
+}
+
+.cropguard-message .bot-avatar {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #166534;
+  flex-shrink: 0;
+}
+
+.cropguard-message .message-bubble {
+  padding: 0.85rem 1.25rem;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.cropguard-message.user .message-bubble {
+  background: #15803d;
+  color: #fff;
+  border-bottom-right-radius: 0.25rem;
+}
+.cropguard-message.bot .message-bubble {
+  background: #fff;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  border-top-left-radius: 0.25rem;
+}
+
+.cropguard-chat-controls {
+  padding: 1rem 1.5rem;
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.cropguard-tags-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  /* Hide scrollbar for clean look */
+  scrollbar-width: none;
+}
+.cropguard-tags-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.cropguard-tags-wrapper .chat-tag {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #dcfce7;
+  padding: 0.4rem 0.85rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cropguard-tags-wrapper .chat-tag:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+}
+
+.cropguard-input-wrapper {
+  display: flex;
+  gap: 0.75rem;
+  position: relative;
+}
+.cropguard-input-wrapper input {
+  flex: 1;
+  background: #f1f5f9;
+  border: 1px solid transparent;
+  padding: 0.85rem 1.25rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  color: #334155;
+  outline: none;
+  transition: all 0.2s;
+}
+.cropguard-input-wrapper input:focus {
+  background: #fff;
+  border-color: #15803d;
+  box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.1);
+}
+.cropguard-input-wrapper .send-btn {
+  background: #15803d;
+  color: white;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cropguard-input-wrapper .send-btn:hover {
+  background: #166534;
+  transform: scale(1.05);
+}
+.cropguard-input-wrapper .send-btn:disabled {
+  background: #cbd5e1;
+  transform: none;
+  cursor: not-allowed;
+}
