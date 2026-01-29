@@ -10,6 +10,9 @@ This document outlines the development processes and workflows for the CropShare
 - MongoDB (local or Atlas)
 - Git
 
+
+
+     
 ### Initial Setup
 1. Clone the repository
 2. Install backend dependencies: `cd server && npm install`
