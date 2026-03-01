@@ -33,6 +33,8 @@ CropShare is a comprehensive digital platform that bridges the gap between farme
 3. Role-based access to platform features
 4. Profile management and preferences
 
+https://github.com/Chhatrapati-sahu-09/Cropshare-connect-farmers-to-NGOs/blob/main/mermaid-diagram%20(7).png
+
 **Technical Implementation:**
 - JWT-based authentication
 - Role-based middleware protection
