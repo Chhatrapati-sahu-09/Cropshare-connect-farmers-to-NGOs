@@ -488,11 +488,4 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 - Weather API providers for environmental data
 - Google Translate for accessibility features
 
-## 📞 Support
-
-For support, email support@cropshare.com or join our Discord community.
-
----
-
-**Built with ❤️ for sustainable agriculture and community welfare**" 
 
